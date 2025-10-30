@@ -1,18 +1,22 @@
 * {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
 }
 
-.mainContainer {
-  height: 100vh;
-  width: 100vw;
-  /* background-color: antiquewhite; */
-  background-image: radial-gradient(
+html{
+ background-image: radial-gradient(
     circle farthest-corner at 10% 20%,
     rgba(202, 248, 255, 1) 0%,
     rgba(186, 204, 227, 1) 51.2%,
     rgba(117, 144, 179, 1) 100.1%
   );
+}
+
+header{
+  position: sticky;
+  top: 0px;
+  z-index: 1;
 }
 
 .navbar {
@@ -27,7 +31,94 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
+  padding-right: 3rem;
 }
+
+.footerBox{
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(0, 105, 148, 1) 15.6%,
+    rgba(0, 163, 217, 1) 51.9%,
+    rgba(0, 194, 226, 1) 81%
+  );
+
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  position: fixed ;
+  bottom: 0px;
+  min-height: 3rem;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8 px;
+}
+
+.contentBox{
+  width: 60%;
+  border: 2px solid black;
+  margin: auto;
+  margin-top: 0.5rem;
+  margin-bottom: 3.5rem;
+  box-shadow: 0px 0px 50px black;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.itemBox{
+  display: flex;
+}
+
+.leftBox{
+  width: 60%;
+  margin-right: 5px;
+}
+
+.rightBox{
+  position: relative;
+  width: 40%;
+  transition: transform 0.3s;
+}
+.rightBox > img{
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px rgb(81, 81, 99);
+}
+
+.rightBox:hover{
+  transform: scale(1.1);
+}
+
+.overlay{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  background-color: rgba(110, 104, 104, 0.414);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.rightBox:hover .overlay{
+  opacity: 1;
+}
+
+.rightBox span{
+  color: white;
+  font-size: 1.2rem;
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------- */
 
 #logoTxt {
   font-size: 2.8rem;
@@ -45,6 +136,15 @@ a {
   font-size: 2rem;
   color: azure;
 }
+nav a:hover{
+  color: rgb(239, 223, 223);
+}
+
+@media (max-width: 950px){
+  .contentBox{
+    width: 70%;
+  }
+}
 
 @media (max-width: 620px) {
   html {
@@ -57,4 +157,8 @@ a {
   a {
     font-size: 1.8rem;
   }
+  .contentBox{
+    width: 80%;
+  }
 }
+
